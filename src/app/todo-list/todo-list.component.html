@@ -1,7 +1,13 @@
 <!-- src/app/todo-list/todo-list.component.html -->
-<digi-todo-add></digi-todo-add>
+<digi-todo-add (addTaskApi)="onTaskAdded()"></digi-todo-add>
+<div class="btn-group mb-3">
+  <!-- <button class="btn btn-secondary" (click)="filter('all')">Toutes</button>
+  <button class="btn btn-secondary" (click)="filter('active')">Actives</button>
+  <button class="btn btn-secondary" (click)="filter('completed')">Complétées</button> -->
+</div>
 <ul>
   <li *ngFor="let todo of todos$ | async">
-    <digi-todo-item [todo]="todo" (toggleCompletion)="onToggleTodoCompletion($event)" (remove)="onRemoveTodo($event)"></digi-todo-item>
+    {{ todo.id }} - {{ todo.title }} - {{ todo.priority }} - {{ todo.completed ? 'Completed' : 'Not Completed' }}
+    <!-- <digi-todo-item [todo]="todo" (toggleCompletion)="onToggleTodoCompletion($event)" (remove)="onRemoveTodo($event)"></digi-todo-item> -->
   </li>
 </ul>

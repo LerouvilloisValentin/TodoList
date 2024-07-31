@@ -1,11 +1,8 @@
-<!-- src/app/todo-item/todo-item.component.html -->
-
- <div>
-  <input type="checkbox" [checked]="todo.completed" (change)="onToggleCompletion()" />
-  <span [class.completed]="todo.completed">{{ todo.title }}</span>
-  <span class="priority" [ngClass]="todo.priority">({{ todo.priority | priority }})</span>
-  <button (click)="onRemove()">Remove</button>
-</div> 
-
-
-
+<div >
+    <!-- <span [class.completed]="todo.completed">{{ todo.title }}</span> -->
+    <!-- <span class="priority" [ngClass]="{'text-danger': todo.priority === 'high', 'text-warning': todo.priority === 'medium', 'text-primary': todo.priority === 'low'}">({{ todo.priority | priority }})</span> -->
+    <button class="btn btn-danger btn-sm" (click)="onRemove()">Remove</button>
+    <button class="btn btn-primary btn-sm" (click)="onToggleCompletion()">
+      {{ todo.completed ? 'Invalider' : 'Valider' }}
+    </button>
+</div>

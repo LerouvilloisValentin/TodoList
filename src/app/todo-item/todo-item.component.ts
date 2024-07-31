@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, output, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TodoService, Todo } from '../todo.service';
 import { PriorityPipe } from '../priority.pipe';
@@ -14,12 +14,17 @@ export class TodoItemComponent {
   @Input() todo!: Todo;
   @Output() toggleCompletion = new EventEmitter<number>();
   @Output() remove = new EventEmitter<number>();
+  @Output() clicked = new EventEmitter<number>()
 
   onToggleCompletion() {
     this.toggleCompletion.emit(this.todo.id);
+    // toggleBtn.textContent =this.todo.completed ?'invalider': 'Valider'
   }
-
+  onClick(id:number){
+    this.clicked.emit(id)
+  }
   onRemove() {
     this.remove.emit(this.todo.id);
   }
+
 }

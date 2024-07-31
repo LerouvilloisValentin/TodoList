@@ -2,15 +2,19 @@
     margin-left: 10px;
     font-weight: bold;
   }
-  
+
 .priority.low {
     color: green;
   }
-  
+
 .priority.medium {
     color: orange;
   }
-  
+
 .priority.high {
     color: red;
+}
+
+.completed{
+  text-decoration: li;
 }
